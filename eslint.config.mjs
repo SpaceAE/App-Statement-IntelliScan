@@ -8,6 +8,7 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.config({
     extends: ['next/core-web-vitals', 'next/typescript', 'prettier'],
+    ignorePatterns: ['.next/', 'node_modules/', 'out/', 'dist/', 'build/'],
     plugins: ['prettier', 'sort-class-members', 'unused-imports'],
     rules: {
       // Prettier
