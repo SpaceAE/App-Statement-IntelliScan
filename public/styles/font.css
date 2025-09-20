@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+  --font-family-primary: 'Mali', 'sans-serif';
+}
+
+.headline_large {
+  font-family: var(--font-family-primary) !important;
+  font-size: 49px !important;
+  line-height: 150% !important;
+}
+
+.headline_normal {
+  font-family: var(--font-family-primary) !important;
+  font-size: 39px !important;
+  line-height: 150% !important;
+}
+
+.headline_base {
+  font-family: var(--font-family-primary) !important;
+  font-size: 31px !important;
+  line-height: 150% !important;
+}
+
+.headline_small {
+  font-family: var(--font-family-primary) !important;
+  font-size: 25px !important;
+  line-height: 150% !important;
+}
+
+.body_large {
+  font-family: var(--font-family-primary) !important;
+  font-size: 20px !important;
+  line-height: 150% !important;
+}
+
+.body_base {
+  font-family: var(--font-family-primary) !important;
+  font-size: 16px !important;
+  line-height: 150% !important;
+}
+
+.body_small {
+  font-family: var(--font-family-primary) !important;
+  font-size: 13px !important;
+  line-height: 150% !important;
+}
+
+.paragraph {
+  font-family: var(--font-family-primary) !important;
+  font-size: 10px !important;
+  line-height: 150% !important;
+}
+
+.remark {
+  font-family: var(--font-family-primary) !important;
+  font-size: 8px !important;
+  line-height: 150% !important;
+}
