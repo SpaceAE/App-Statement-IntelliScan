@@ -25,13 +25,7 @@ export default function AppLayout({
 }) {
   return (
     <Frame elevation={0} square={false}>
-      <Box
-        component="main"
-        sx={{
-          flex: 1,
-          overflowY: 'hidden',
-        }}
-      >
+      <Box component="main" sx={{ flex: 1 }}>
         {children}
       </Box>
       <Navbar />

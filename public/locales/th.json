@@ -5,6 +5,10 @@
   "setting": {
     "title": "Setting",
     "theme": "โหมดมืด",
-    "language": "ภาษา"
+    "language": "ภาษา",
+    "menuLanguage": {
+      "en": "อังกฤษ",
+      "th": "ไทย"
+    }
   }
 }

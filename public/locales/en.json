@@ -5,6 +5,10 @@
   "setting": {
     "title": "Setting",
     "theme": "Dark Mode",
-    "language": "Language"
+    "language": "Language",
+    "menuLanguage": {
+      "en": "English",
+      "th": "Thai"
+    }
   }
 }
