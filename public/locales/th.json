@@ -1,5 +1,10 @@
 {
   "common": {
     "welcome": "ยินดีต้อนรับเข้าสู่เว็บไซต์ของเรา"
+  },
+  "setting": {
+    "title": "Setting",
+    "theme": "โหมดมืด",
+    "language": "ภาษา"
   }
 }
