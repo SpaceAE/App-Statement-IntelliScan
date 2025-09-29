@@ -1,5 +1,10 @@
 {
   "common": {
     "welcome": "Welcome to our website"
+  },
+  "setting": {
+    "title": "Setting",
+    "theme": "Dark Mode",
+    "language": "Language"
   }
 }
