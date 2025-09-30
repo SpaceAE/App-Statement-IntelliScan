@@ -2,6 +2,30 @@
   "common": {
     "welcome": "Welcome to our website"
   },
+  "home": {
+    "title": "Statement IntelliScan",
+    "description": "Confidence in every transaction powered by AI",
+    "features": {
+      "ai-analysis": {
+        "title": "AI Analysis",
+        "description": "Advanced AI system analyzes your statements to identify anomalies and assess potential risks"
+      },
+      "risk-assessment": {
+        "title": "Risk Assessment",
+        "description": "Assess risk levels and provide guidance to safeguard your account"
+      },
+      "fraud-detection": {
+        "title": "Fraud Detection",
+        "description": "Monitor suspicious transaction patterns and alert you to financial threats"
+      }
+    },
+    "howToUse": {
+      "title": "How to Use",
+      "step1": "Upload statement from mobile banking app",
+      "step2": "The AI system analyzes the data",
+      "step3": "Receive a risk assessment with recommendations"
+    }
+  },
   "setting": {
     "title": "Setting",
     "theme": "Dark Mode",

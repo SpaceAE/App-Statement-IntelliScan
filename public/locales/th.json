@@ -2,6 +2,30 @@
   "common": {
     "welcome": "ยินดีต้อนรับเข้าสู่เว็บไซต์ของเรา"
   },
+  "home": {
+    "title": "Statement IntelliScan",
+    "description": "มั่นใจในทุกธุรกรรม ด้วยพลัง AI",
+    "features": {
+      "ai-analysis": {
+        "title": "AI Analysis",
+        "description": "ระบบ AI ที่ทันสมัยจะวิเคราะห์ statement ของคุณเพื่อตรวจหาความผิดปกติและความเสี่ยง"
+      },
+      "risk-assessment": {
+        "title": "Risk Assessment",
+        "description": "ประเมินระดับความเสี่ยงและให้คำแนะนำเพื่อปกป้องเงินในบัญชีของคุณ"
+      },
+      "fraud-detection": {
+        "title": "Fraud Detection",
+        "description": "ตรวจสอบรูปแบบการทำธุรกรรมที่น่าสงสัยและแจ้งเตือนภัยคุกคามทางการเงิน"
+      }
+    },
+    "howToUse": {
+      "title": "วิธีการใช้งาน",
+      "step1": "อัปโหลด statement จากแอป mobile banking",
+      "step2": "รอระบบ AI วิเคราะห์ข้อมูล",
+      "step3": "ได้รับผลการประเมินความเสี่ยงพร้อมคำแนะนำ"
+    }
+  },
   "setting": {
     "title": "Setting",
     "theme": "โหมดมืด",
