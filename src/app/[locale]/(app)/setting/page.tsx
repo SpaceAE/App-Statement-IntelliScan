@@ -97,8 +97,24 @@ export default function SettingPage() {
   const locale = useLocale();
 
   return (
-    <Stack justifyContent={'center'} gap={4} paddingTop={'48px'}>
-      <Typography variant="h4" fontWeight={'bold'} textAlign={'center'}>
+    <Stack
+      justifyContent={'flex-start'}
+      sx={{
+        padding: '10vh 12px 0',
+        height: '100%',
+        gap: '32px',
+        '@media (max-height: 800px)': {
+          paddingTop: '12px',
+          gap: '16px',
+        },
+      }}
+    >
+      <Typography
+        component={'h1'}
+        variant="h4"
+        fontWeight={'bold'}
+        textAlign={'center'}
+      >
         {t('title')}
       </Typography>
       <CardItem
