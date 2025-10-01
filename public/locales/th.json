@@ -27,6 +27,8 @@
     }
   },
   "upload": {
+    "title": "Upload Statement",
+    "uploadButton": "เริ่มตรวจสอบ",
     "component": {
       "chooseFile": "เลือกไฟล์ Statement",
       "chooseFileDescription": "ลากและวางไฟล์ที่นี่ หรือคลิกเพื่อเลือกไฟล์",

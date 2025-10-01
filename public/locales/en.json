@@ -27,6 +27,8 @@
     }
   },
   "upload": {
+    "title": "Upload Statement",
+    "uploadButton": "upload",
     "component": {
       "chooseFile": "Choose Statement File",
       "chooseFileDescription": "Drag and drop file here, or click to select",
