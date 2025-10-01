@@ -26,6 +26,18 @@
       "step3": "Receive a risk assessment with recommendations"
     }
   },
+  "upload": {
+    "component": {
+      "chooseFile": "Choose Statement File",
+      "chooseFileDescription": "Drag and drop file here, or click to select",
+      "uploadButton": "Choose File",
+      "fileTypes": "Supported formats: {types}",
+      "chooseDifferentFile": "Choose Different File",
+      "fileTooLarge": "File exceeds {maxSize}MB",
+      "invalidFileType": "Invalid file type: {types}",
+      "loading": "Processing..."
+    }
+  },
   "setting": {
     "title": "Setting",
     "theme": "Dark Mode",

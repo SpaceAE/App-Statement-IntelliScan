@@ -26,6 +26,18 @@
       "step3": "ได้รับผลการประเมินความเสี่ยงพร้อมคำแนะนำ"
     }
   },
+  "upload": {
+    "component": {
+      "chooseFile": "เลือกไฟล์ Statement",
+      "chooseFileDescription": "ลากและวางไฟล์ที่นี่ หรือคลิกเพื่อเลือกไฟล์",
+      "uploadButton": "อัปโหลดไฟล์",
+      "fileTypes": "รองรับไฟล์: {types}",
+      "chooseDifferentFile": "เลือกไฟล์อื่น",
+      "fileTooLarge": "ไฟล์มีขนาดเกิน {maxSize}MB",
+      "invalidFileType": "ประเภทไฟล์ไม่ถูกต้อง: {types}",
+      "loading": "กำลังประมวลผล..."
+    }
+  },
   "setting": {
     "title": "Setting",
     "theme": "โหมดมืด",
