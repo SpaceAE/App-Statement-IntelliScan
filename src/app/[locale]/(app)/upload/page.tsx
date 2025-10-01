@@ -1,3 +1,9 @@
+import InputFileUpload from '@/components/InputFileUpload';
+
 export default function UploadPage() {
-  return <div>Upload Page</div>;
+  return (
+    <div>
+      <InputFileUpload acceptedTypes=".pdf" maxSize={10} />
+    </div>
+  );
 }
