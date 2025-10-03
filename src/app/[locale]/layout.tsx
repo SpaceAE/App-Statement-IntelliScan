@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: 'Statement IntelliScan',
   description:
     'AI-powered financial statement analysis and risk assessment tool',
+  icons: {
+    icon: '/icons/ai-analysis.svg',
+  },
 };
 
 export function generateStaticParams() {

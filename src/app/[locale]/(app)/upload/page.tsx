@@ -104,10 +104,15 @@ export default function UploadPage() {
         </Typography>
         <InputFileUpload
           acceptedTypes=".pdf"
-          maxSize={10}
+          maxSize={30}
           onFileSelect={(selectedFile: File) => setFile(selectedFile)}
         />
-        <Button variant="contained" color="primary" disabled={!file}>
+        <Button
+          variant="contained"
+          color="primary"
+          disabled={!file}
+          onClick={() => setModalPasswordOpen(true)}
+        >
           {t('uploadButton')}
         </Button>
       </Stack>
