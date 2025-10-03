@@ -1,6 +1,9 @@
 {
   "common": {
-    "welcome": "Welcome to our website"
+    "cancel": "Cancel",
+    "tryAgain": "Retry",
+    "confirm": "Confirm",
+    "submit": "Submit"
   },
   "home": {
     "title": "Statement IntelliScan",
@@ -38,6 +41,26 @@
       "fileTooLarge": "File exceeds {maxSize}MB",
       "invalidFileType": "Invalid file type: {types}",
       "loading": "Processing..."
+    },
+    "modal": {
+      "noRisk": {
+        "title": "Secure transaction",
+        "description": "No issues found"
+      },
+      "risk": {
+        "title": "Risk detected",
+        "description": "Transaction anomaly detected\nPlease review or contract your bank"
+      },
+      "passwordProtected": {
+        "title": "Enter your password"
+      },
+      "passwordNotCorrect": {
+        "title": "Incorrect Password"
+      },
+      "internalError": {
+        "title": "Processing failed",
+        "description": "An error occurred during connection\nPlease try again"
+      }
     }
   },
   "setting": {
