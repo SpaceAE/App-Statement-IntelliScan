@@ -10,6 +10,9 @@ const font = Prompt({
 const theme = createTheme({
   typography: {
     fontFamily: font.style.fontFamily,
+    button: {
+      textTransform: 'none',
+    },
   },
   palette: {
     primary: {
@@ -55,6 +58,7 @@ const theme = createTheme({
       700: '#ef4343',
       800: '#970d0d',
       900: '#490606',
+      main: '#f36f6f',
     },
     warning: {
       50: '#fffefc',
@@ -67,6 +71,7 @@ const theme = createTheme({
       700: '#f4b225',
       800: '#916608',
       900: '#493304',
+      main: '#f6c458',
     },
     grey: {
       50: '#fcfcfd',
@@ -115,6 +120,17 @@ const theme = createTheme({
         text: {
           primary: '#fcfcfd',
           secondary: '#e0e4ea',
+        },
+      },
+    },
+  },
+  components: {
+    MuiBackdrop: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'rgb(0, 0, 0, 0.4)',
+          backdropFilter: 'blur(5px)',
+          WebkitBackdropFilter: 'blur(5px)',
         },
       },
     },

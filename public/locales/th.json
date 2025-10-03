@@ -1,6 +1,9 @@
 {
   "common": {
-    "welcome": "ยินดีต้อนรับเข้าสู่เว็บไซต์ของเรา"
+    "cancel": "ยกเลิก",
+    "tryAgain": "ลองอีกครั้ง",
+    "confirm": "รับทราบ",
+    "submit": "ยืนยัน"
   },
   "home": {
     "title": "Statement IntelliScan",
@@ -38,6 +41,26 @@
       "fileTooLarge": "ไฟล์มีขนาดเกิน {maxSize}MB",
       "invalidFileType": "ประเภทไฟล์ไม่ถูกต้อง: {types}",
       "loading": "กำลังประมวลผล..."
+    },
+    "modal": {
+      "noRisk": {
+        "title": "ธุรกรรมปกติ",
+        "description": "ไม่พบความผิดพลาดในธุรกรรมนี้"
+      },
+      "risk": {
+        "title": "ตรวจพบธุรกรรมเสี่ยง",
+        "description": "ระบบตรวจพบความผิดปกติของธุรกรรม\nกรุณาตรวจสอบ หรือ ติดต่อธนาคารของท่าน"
+      },
+      "passwordProtected": {
+        "title": "กรุณากรอกรหัสผ่าน"
+      },
+      "passwordNotCorrect": {
+        "title": "รหัสผ่านไม่ถูกต้อง"
+      },
+      "internalError": {
+        "title": "ไม่สามารถประมวลผลได้",
+        "description": "เกิดความผิดพลาดระหว่างเชื่อมต่อ\nกรุณาลองอีกครั้ง"
+      }
     }
   },
   "setting": {
