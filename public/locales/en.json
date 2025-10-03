@@ -3,7 +3,8 @@
     "cancel": "Cancel",
     "tryAgain": "Retry",
     "confirm": "Confirm",
-    "submit": "Submit"
+    "submit": "Submit",
+    "loading": "Risk assessment in progress\nPlease wait..."
   },
   "home": {
     "title": "Statement IntelliScan",

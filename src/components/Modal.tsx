@@ -31,7 +31,7 @@ interface ModalProps {
   };
 }
 
-const ModalContainer = styled(Box)(({ theme }) => ({
+export const ModalContainer = styled(Box)(({ theme }) => ({
   position: 'absolute',
   top: '50%',
   left: '50%',

@@ -3,7 +3,8 @@
     "cancel": "ยกเลิก",
     "tryAgain": "ลองอีกครั้ง",
     "confirm": "รับทราบ",
-    "submit": "ยืนยัน"
+    "submit": "ยืนยัน",
+    "loading": "กำลังประเมินความเสี่ยง โปรดรอสักครู่..."
   },
   "home": {
     "title": "Statement IntelliScan",
