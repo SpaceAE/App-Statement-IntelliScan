@@ -68,6 +68,7 @@ export default function UploadPage() {
 
   const handleSubmit = async () => {
     mutate({ file: file as File, password });
+    setPassword('');
   };
 
   const modal: Record<string, Omit<ComponentProps<typeof Modal>, 'onClose'>> = {
@@ -99,7 +100,6 @@ export default function UploadPage() {
         text: tCommon('tryAgain'),
         onClick: () => {
           setModalOpen(prev => ({ ...prev, passwordNotCorrect: false }));
-          setPassword('');
           setModalPasswordOpen(true);
         },
       },
