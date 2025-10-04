@@ -3,14 +3,25 @@
 import { Button, Input, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { ComponentProps, useState } from 'react';
+import { ComponentProps, useEffect, useState } from 'react';
 
 import InputFileUpload from '@/components/InputFileUpload';
 import Modal from '@/components/Modal';
+import { PredictResult } from '@/constants/predictResult';
+import { useMutation } from '@/plugins/tanstack';
+import {
+  predict,
+  PredictRequest,
+  PredictResponse,
+  PredictResponseType,
+} from '@/services/predict';
+import { hideLoading, showLoading } from '@/stores/common/common.slice';
+import { useDispatch } from '@/stores/store';
 
 export default function UploadPage() {
   const t = useTranslations('upload');
   const tCommon = useTranslations('common');
+  const dispatch = useDispatch();
   const [file, setFile] = useState<File | null>(null);
   const [password, setPassword] = useState('');
   const [modalPasswordOpen, setModalPasswordOpen] = useState(false);
@@ -21,11 +32,48 @@ export default function UploadPage() {
     internalError: false,
   });
 
-  const modal: Record<string, ComponentProps<typeof Modal>> = {
+  const { mutate, isPending } = useMutation<
+    PredictRequest,
+    PredictResponse<PredictResponseType.SUCCESS>,
+    PredictResponse<PredictResponseType.ERROR>
+  >({
+    mutationFn: predict,
+    onSuccess: ({ data }) => {
+      switch (data.prediction) {
+        case PredictResult.NORMAL:
+          setModalOpen(prev => ({ ...prev, noRisk: true }));
+          break;
+        case PredictResult.FRAUD:
+          setModalOpen(prev => ({ ...prev, risk: true }));
+          break;
+        default:
+          setModalOpen(prev => ({ ...prev, internalError: true }));
+          break;
+      }
+    },
+    onError: error => {
+      switch (error.status) {
+        case 403:
+          setModalOpen(prev => ({ ...prev, passwordNotCorrect: true }));
+          break;
+        case 422:
+          setModalPasswordOpen(true);
+          break;
+        default:
+          setModalOpen(prev => ({ ...prev, internalError: true }));
+          break;
+      }
+    },
+  });
+
+  const handleSubmit = async () => {
+    mutate({ file: file as File, password });
+  };
+
+  const modal: Record<string, Omit<ComponentProps<typeof Modal>, 'onClose'>> = {
     noRisk: {
       type: 'success',
       open: modalOpen.noRisk,
-      onClose: () => setModalOpen(prev => ({ ...prev, noRisk: false })),
       title: t('modal.noRisk.title'),
       description: t('modal.noRisk.description'),
       primaryButton: {
@@ -36,7 +84,6 @@ export default function UploadPage() {
     risk: {
       type: 'warning',
       open: modalOpen.risk,
-      onClose: () => setModalOpen(prev => ({ ...prev, risk: false })),
       title: t('modal.risk.title'),
       description: t('modal.risk.description'),
       primaryButton: {
@@ -47,38 +94,49 @@ export default function UploadPage() {
     passwordNotCorrect: {
       type: 'error',
       open: modalOpen.passwordNotCorrect,
-      onClose: () =>
-        setModalOpen(prev => ({ ...prev, passwordNotCorrect: false })),
       title: t('modal.passwordNotCorrect.title'),
       primaryButton: {
         text: tCommon('tryAgain'),
-        onClick: () =>
-          setModalOpen(prev => ({ ...prev, passwordNotCorrect: false })),
+        onClick: () => {
+          setModalOpen(prev => ({ ...prev, passwordNotCorrect: false }));
+          setPassword('');
+          setModalPasswordOpen(true);
+        },
       },
       secondaryButton: {
         text: tCommon('cancel'),
-        onClick: () =>
-          setModalOpen(prev => ({ ...prev, passwordNotCorrect: false })),
+        onClick: () => {
+          setPassword('');
+          setModalOpen(prev => ({ ...prev, passwordNotCorrect: false }));
+        },
       },
     },
     internalError: {
       type: 'error',
       open: modalOpen.internalError,
-      onClose: () => setModalOpen(prev => ({ ...prev, internalError: false })),
       title: t('modal.internalError.title'),
       description: t('modal.internalError.description'),
       primaryButton: {
         text: tCommon('tryAgain'),
-        onClick: () =>
-          setModalOpen(prev => ({ ...prev, internalError: false })),
+        onClick: () => {
+          setPassword('');
+          setModalOpen(prev => ({ ...prev, internalError: false }));
+          setModalPasswordOpen(true);
+        },
       },
       secondaryButton: {
         text: tCommon('cancel'),
-        onClick: () =>
-          setModalOpen(prev => ({ ...prev, internalError: false })),
+        onClick: () => {
+          setPassword('');
+          setModalOpen(prev => ({ ...prev, internalError: false }));
+        },
       },
     },
   };
+
+  useEffect(() => {
+    dispatch(isPending ? showLoading() : hideLoading());
+  }, [dispatch, isPending]);
 
   return (
     <>
@@ -111,7 +169,7 @@ export default function UploadPage() {
           variant="contained"
           color="primary"
           disabled={!file}
-          onClick={() => setModalPasswordOpen(true)}
+          onClick={handleSubmit}
         >
           {t('uploadButton')}
         </Button>
@@ -128,7 +186,10 @@ export default function UploadPage() {
             priority
           />
         }
-        onClose={() => setModalPasswordOpen(false)}
+        onClose={() => {
+          setPassword('');
+          setModalPasswordOpen(false);
+        }}
         title={t('modal.passwordProtected.title')}
         description={
           <Input
@@ -139,16 +200,32 @@ export default function UploadPage() {
         }
         primaryButton={{
           text: tCommon('submit'),
-          onClick: () => setModalPasswordOpen(false),
+          onClick: () => {
+            if (!password.trim()) {
+              setPassword('');
+            }
+            setModalPasswordOpen(false);
+            handleSubmit();
+          },
         }}
         secondaryButton={{
           text: tCommon('cancel'),
-          onClick: () => setModalPasswordOpen(false),
+          onClick: () => {
+            setPassword('');
+            setModalPasswordOpen(false);
+          },
         }}
       />
 
-      {Object.values(modal).map((props, index) => (
-        <Modal key={index} {...props} />
+      {Object.entries(modal).map(([key, props]) => (
+        <Modal
+          key={key}
+          onClose={() => {
+            setPassword('');
+            setModalOpen(prev => ({ ...prev, [key]: false }));
+          }}
+          {...props}
+        />
       ))}
     </>
   );
