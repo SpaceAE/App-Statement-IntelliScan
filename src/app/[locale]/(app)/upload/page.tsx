@@ -121,7 +121,7 @@ export default function UploadPage() {
         onClick: () => {
           setPassword('');
           setModalOpen(prev => ({ ...prev, internalError: false }));
-          setModalPasswordOpen(true);
+          handleSubmit();
         },
       },
       secondaryButton: {
