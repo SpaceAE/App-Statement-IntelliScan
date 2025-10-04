@@ -6,6 +6,7 @@ import { setRequestLocale } from 'next-intl/server';
 
 import { routing } from '@/plugins/i18n/routing';
 import MuiProvider from '@/plugins/mui/Provider';
+import QueryProvider from '@/plugins/tanstack/Provider';
 import { StoreProvider } from '@/stores/provider';
 
 export const metadata: Metadata = {
@@ -42,7 +43,9 @@ export default async function RootLayout({
         <AppRouterCacheProvider>
           <NextIntlClientProvider>
             <StoreProvider>
-              <MuiProvider>{children}</MuiProvider>
+              <QueryProvider>
+                <MuiProvider>{children}</MuiProvider>
+              </QueryProvider>
             </StoreProvider>
           </NextIntlClientProvider>
         </AppRouterCacheProvider>
