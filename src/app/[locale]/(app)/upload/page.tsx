@@ -7,7 +7,9 @@ import { ComponentProps, useEffect, useState } from 'react';
 
 import InputFileUpload from '@/components/InputFileUpload';
 import Modal from '@/components/Modal';
+import { PageRoute } from '@/constants';
 import { PredictResult } from '@/constants/predictResult';
+import { useRouter } from '@/plugins/i18n/navigation';
 import { useMutation } from '@/plugins/tanstack';
 import {
   predict,
@@ -22,6 +24,7 @@ export default function UploadPage() {
   const t = useTranslations('upload');
   const tCommon = useTranslations('common');
   const dispatch = useDispatch();
+  const router = useRouter();
   const [file, setFile] = useState<File | null>(null);
   const [password, setPassword] = useState('');
   const [modalPasswordOpen, setModalPasswordOpen] = useState(false);
@@ -32,7 +35,7 @@ export default function UploadPage() {
     internalError: false,
   });
 
-  const { mutate, isPending } = useMutation<
+  const { mutate, isPending, data } = useMutation<
     PredictRequest,
     PredictResponse<PredictResponseType.SUCCESS>,
     PredictResponse<PredictResponseType.ERROR>
@@ -88,8 +91,16 @@ export default function UploadPage() {
       title: t('modal.risk.title'),
       description: t('modal.risk.description'),
       primaryButton: {
-        text: tCommon('confirm'),
-        onClick: () => setModalOpen(prev => ({ ...prev, risk: false })),
+        text: tCommon('readMore'),
+        onClick: () => {
+          setModalOpen(prev => ({ ...prev, risk: false }));
+          router.replace({
+            pathname: PageRoute.SUMMARY,
+            query: {
+              data: Buffer.from(JSON.stringify(data?.data)).toString('base64'),
+            },
+          });
+        },
       },
     },
     passwordNotCorrect: {

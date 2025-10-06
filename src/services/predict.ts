@@ -15,11 +15,34 @@ export enum PredictResponseType {
 export type PredictResponse<
   T extends PredictResponseType = PredictResponseType,
 > = T extends PredictResponseType.SUCCESS
-  ? {
-      prediction: PredictResult;
-      confidence: number;
-    }
+  ?
+      | {
+          prediction: PredictResult.NORMAL;
+          confidence: number;
+        }
+      | {
+          prediction: PredictResult.FRAUD;
+          confidence: number;
+          fraud_count: number;
+          transactions_count: number;
+          transactions: Array<{
+            idx: number;
+            tx_datetime: string;
+            code_channel_raw: string;
+            debit_amount: number;
+            credit_amount: number;
+            balance_amount: number;
+            description_text: string;
+            fraud_score: number;
+            is_fraud: boolean;
+          }>;
+        }
   : { message: string };
+
+export type PredictFraudSuccessResponse = Extract<
+  PredictResponse<PredictResponseType.SUCCESS>,
+  { prediction: PredictResult.FRAUD }
+>;
 
 export const predict = async (data: PredictRequest) => {
   const formData = new FormData();

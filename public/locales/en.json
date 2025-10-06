@@ -4,7 +4,8 @@
     "tryAgain": "Retry",
     "confirm": "Confirm",
     "submit": "Submit",
-    "loading": "Risk assessment in progress\nPlease wait..."
+    "loading": "Risk assessment in progress\nPlease wait...",
+    "readMore": "Read More"
   },
   "home": {
     "title": "Statement IntelliScan",
@@ -32,7 +33,7 @@
   },
   "upload": {
     "title": "Upload Statement",
-    "uploadButton": "upload",
+    "uploadButton": "Upload",
     "component": {
       "chooseFile": "Choose Statement File",
       "chooseFileDescription": "Drag and drop file here, or click to select",
@@ -63,6 +64,19 @@
         "description": "An error occurred during connection\nPlease try again"
       }
     }
+  },
+  "summary": {
+    "title": "Summary",
+    "confidence": "Your statement has been assessed for risks\n{value}%",
+    "transaction": {
+      "idx": "Transaction ID: {value}",
+      "tx_datetime": "Transaction Date/Time: {value}",
+      "debit_amount": "Debit Amount: {value}",
+      "credit_amount": "Credit Amount: {value}",
+      "balance_amount": "Balance Amount: {value}",
+      "description_text": "Description: {value}"
+    },
+    "noData": "No data found"
   },
   "setting": {
     "title": "Setting",

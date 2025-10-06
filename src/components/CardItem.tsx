@@ -2,7 +2,7 @@
 
 import { Stack, styled, Typography } from '@mui/material';
 
-const StyledCard = styled(Stack)({
+export const StyledCard = styled(Stack)({
   padding: '16px 24px',
   borderRadius: '8px',
   backgroundColor: 'rgba(255, 255, 255, 0.15)',

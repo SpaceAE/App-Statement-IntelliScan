@@ -4,7 +4,8 @@
     "tryAgain": "ลองอีกครั้ง",
     "confirm": "รับทราบ",
     "submit": "ยืนยัน",
-    "loading": "กำลังประเมินความเสี่ยง โปรดรอสักครู่..."
+    "loading": "กำลังประเมินความเสี่ยง โปรดรอสักครู่...",
+    "readMore": "ดูเพิ่มเติม"
   },
   "home": {
     "title": "Statement IntelliScan",
@@ -63,6 +64,19 @@
         "description": "เกิดความผิดพลาดระหว่างเชื่อมต่อ\nกรุณาลองอีกครั้ง"
       }
     }
+  },
+  "summary": {
+    "title": "Summary",
+    "confidence": "Statement ของคุณมีความเสี่ยง\n{value}%",
+    "transaction": {
+      "idx": "Transaction ID: {value}",
+      "tx_datetime": "วัน-เวลาทำรายการ: {value}",
+      "debit_amount": "จำนวนเงินที่หักออก: {value}",
+      "credit_amount": "จำนวนเงินที่เติมเข้า: {value}",
+      "balance_amount": "ยอดคงเหลือ: {value}",
+      "description_text": "คำอธิบาย: {value}"
+    },
+    "noData": "ไม่พบข้อมูล"
   },
   "setting": {
     "title": "Setting",

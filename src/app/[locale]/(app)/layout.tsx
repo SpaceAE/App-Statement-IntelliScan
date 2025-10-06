@@ -14,6 +14,7 @@ const Frame = styled(Paper)(({ theme }) => ({
   display: 'flex',
   padding: '16px',
   margin: '0 auto',
+  gap: '16px',
   flexDirection: 'column',
   overflow: 'hidden',
   backgroundColor: theme.palette.background.paper,
@@ -30,7 +31,7 @@ export default function AppLayout({
   return (
     <>
       <Frame elevation={0} square={false}>
-        <Box component="main" sx={{ flex: 1 }}>
+        <Box component="main" sx={{ flex: 1, overflow: 'hidden' }}>
           {children}
         </Box>
         <Navbar />
