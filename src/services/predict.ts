@@ -58,6 +58,9 @@ export const predict = async (data: PredictRequest) => {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
+      params: {
+        only_fraud: true,
+      },
     }
   );
 };

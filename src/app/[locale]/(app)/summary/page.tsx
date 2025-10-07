@@ -64,7 +64,9 @@ export default async function SummaryPage({
               sx={{ flex: 1 }}
               whiteSpace={'pre-line'}
             >
-              {t('confidence', { value: parsedData.confidence * 100 })}
+              {t('confidence', {
+                value: (Number(parsedData.confidence) * 100).toFixed(2),
+              })}
             </Typography>
           </StyledCard>
 
