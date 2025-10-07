@@ -1,18 +1,18 @@
-'use client';
-
 import { ReportProblemOutlined as ReportProblemOutlinedIcon } from '@mui/icons-material';
 import { Stack, Typography } from '@mui/material';
-import { useSearchParams } from 'next/navigation';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
 import { StyledCard } from '@/components/CardItem';
 import { PredictResult } from '@/constants/predictResult';
 import { PredictFraudSuccessResponse } from '@/services/predict';
 
-export default function SummaryPage() {
-  const t = useTranslations('summary');
-  const query = useSearchParams();
-  const data = query.get('data');
+export default async function SummaryPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ data: string }>;
+}) {
+  const t = await getTranslations('summary');
+  const { data } = await searchParams;
   const parsedData = data
     ? JSON.parse(Buffer.from(data, 'base64').toString())
     : null;
