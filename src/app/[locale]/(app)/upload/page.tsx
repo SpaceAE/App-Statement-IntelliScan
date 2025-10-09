@@ -172,7 +172,7 @@ export default function UploadPage() {
           {t('title')}
         </Typography>
         <InputFileUpload
-          acceptedTypes=".pdf"
+          acceptedTypes=".pdf,.csv,.xlsx"
           maxSize={30}
           onFileSelect={(selectedFile: File) => setFile(selectedFile)}
         />
